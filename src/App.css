@@ -1,0 +1,728 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+#root {
+  max-width: 1280px;
+  margin: 0 auto;
+  padding: 2rem;
+  text-align: center;
+  background-color: hsl(220, 13%, 99%);
+}
+
+.logo {
+  height: 6em;
+  padding: 1.5em;
+  will-change: filter;
+  transition: filter 300ms;
+}
+.logo:hover {
+  filter: drop-shadow(0 0 2em #646cffaa);
+}
+.logo.react:hover {
+  filter: drop-shadow(0 0 2em #61dafbaa);
+}
+
+@keyframes logo-spin {
+  from {
+    transform: rotate(0deg);
+  }
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+@media (prefers-reduced-motion: no-preference) {
+  a:nth-of-type(2) .logo {
+    animation: logo-spin infinite 20s linear;
+  }
+}
+
+.card {
+  padding: 2em;
+}
+
+.read-the-docs {
+  color: #888;
+}
+
+/* Dashboard Container */
+.dashboard-container {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 1rem;
+}
+
+.dashboard-title {
+  font-size: 1.875rem;
+  font-weight: bold;
+  margin-bottom: 1.5rem;
+  color: #1f2937;
+}
+
+/* New Metric Card Styles */
+.metrics-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+  gap: 1.5rem;
+  margin-bottom: 2rem;
+}
+
+.metric-card-new {
+  width: 100%;
+  height: 220px;
+  border-radius: 20px;
+  background: #ffffff;
+  position: relative;
+  padding: 1.5rem;
+  border: 2px solid #e5e7eb;
+  transition: 0.5s ease-out;
+  overflow: hidden;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.05);
+}
+
+.metric-card-new:hover {
+  border-color: #6041bf;
+  box-shadow: 0 8px 25px rgba(96, 65, 191, 0.15);
+  transform: translateY(-5px);
+}
+
+.card-details {
+  color: #1f2937;
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+
+.text-title {
+  font-size: 1.1em;
+  font-weight: 600;
+  color: #6b7280;
+  margin-bottom: 0.5rem;
+}
+
+.text-value {
+  font-size: 2.5em;
+  font-weight: bold;
+  color: #6041bf;
+  margin: 0.5rem 0;
+  line-height: 1;
+}
+
+.text-body {
+  color: #9ca3af;
+  font-size: 0.9em;
+  margin-top: 0.5rem;
+}
+
+.card-button {
+  transform: translate(-50%, 125%);
+  width: 65%;
+  border-radius: 1rem;
+  border: none;
+  background-color: #6041bf;
+  color: #fff;
+  font-size: 0.9rem;
+  font-weight: 600;
+  padding: 1rem 6rem;
+  position: absolute;
+  left: 50%;
+  bottom: 0;
+  opacity: 0;
+  transition: 0.3s ease-out;
+  cursor: pointer;
+  box-shadow: 0 4px 8px rgba(96, 65, 191, 0.2);
+}
+
+.card-button:hover {
+  background-color: #5034a3;
+  box-shadow: 0 6px 12px rgba(96, 65, 191, 0.3);
+}
+
+/* Hover effects */
+.metric-card-new:hover .card-button {
+  transform: translate(-50%, 50%);
+  opacity: 1;
+}
+
+/* Chart Cards - Updated to match metric card style */
+.charts-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+  gap: 1.5rem;
+  margin-bottom: 2rem;
+}
+
+.chart-card {
+  width: 100%;
+  border-radius: 20px;
+  background: #ffffff;
+  position: relative;
+  padding: 1.5rem;
+  border: 2px solid #e5e7eb;
+  transition: 0.5s ease-out;
+  overflow: hidden;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.05);
+}
+
+.chart-card:hover {
+  border-color: #6041bf;
+  box-shadow: 0 8px 25px rgba(96, 65, 191, 0.15);
+  transform: translateY(-5px);
+}
+
+.chart-title {
+  font-size: 1.25rem;
+  font-weight: 600;
+  margin-bottom: 1rem;
+  color: #1f2937;
+}
+
+/* Pie chart container */
+.pie-chart {
+  position: relative;
+  width: 120px;
+  height: 120px;
+}
+
+.pie-chart-center {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  font-size: 1.5rem;
+  font-weight: bold;
+  color: #1f2937;
+}
+
+/* Bar chart styles */
+.bar-chart {
+  display: flex;
+  height: 30px;
+  background-color: #e5e7eb;
+  border-radius: 0.375rem;
+  overflow: hidden;
+  margin-bottom: 1rem;
+}
+
+.bar-segment {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: white;
+  font-weight: bold;
+  font-size: 0.875rem;
+  transition: width 0.3s ease;
+}
+
+.bar-owned {
+  background-color: #3b82f6;
+}
+
+.bar-leased {
+  background-color: #8b5cf6;
+}
+
+/* Legend styles */
+.chart-legend {
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+}
+
+.legend-item {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+}
+
+.legend-color {
+  width: 12px;
+  height: 12px;
+  border-radius: 2px;
+}
+
+.legend-assigned {
+  background-color: #10b981;
+}
+
+.legend-unassigned {
+  background-color: #f59e0b;
+}
+
+.legend-defect {
+  background-color: #ef4444;
+}
+
+/* License distribution */
+.license-grid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 0.5rem;
+}
+
+.license-item {
+  display: flex;
+  justify-content: space-between;
+  padding: 0.25rem 0;
+  color: #6b7280;
+}
+
+.license-item span:last-child {
+  font-weight: 600;
+  color: #6041bf;
+}
+
+/* Chart tooltip styles */
+.chart-tooltip {
+  position: fixed;
+  background-color: #6041bf;
+  color: white;
+  padding: 0.5rem 0.75rem;
+  border-radius: 0.375rem;
+  font-size: 1.2rem;
+  pointer-events: none;
+  z-index: 1000;
+  white-space: nowrap;
+}
+
+.tooltip-title {
+  font-weight: bold;
+  margin-bottom: 0.25rem;
+}
+
+.tooltip-value {
+  margin-bottom: 0.125rem;
+}
+
+.tooltip-percent {
+  font-size: 1.15rem;
+  opacity: 0.9;
+}
+
+/* Pie segment hover effects */
+.pie-segment:hover {
+  opacity: 0.8;
+  cursor: pointer;
+}
+
+/* Bar segment hover effects */
+.bar-segment:hover {
+  filter: brightness(1.2);
+  cursor: pointer;
+}
+
+/* Button styles */
+.btn {
+  display: inline-block;
+  padding: 0.75rem 1.5rem;
+  background-color: #6041bf;
+  color: white;
+  border: none;
+  border-radius: 0.375rem;
+  font-size: 1rem;
+  font-weight: 500;
+  cursor: pointer;
+  text-align: center;
+  transition: all 0.25s ease;
+  box-shadow: 0 4px 6px rgba(96, 65, 191, 0.2);
+}
+
+.btn:hover {
+  background-color: #5034a3;
+  box-shadow: 0 6px 12px rgba(96, 65, 191, 0.3);
+  transform: translateY(-2px);
+}
+
+/* Responsive design */
+@media (max-width: 768px) {
+  .metrics-grid {
+    grid-template-columns: repeat(2, 1fr);
+    gap: 1rem;
+  }
+  
+  .metric-card-new {
+    height: 200px;
+    padding: 1.2rem;
+  }
+  
+  .text-value {
+    font-size: 2em;
+  }
+  
+  .charts-grid {
+    grid-template-columns: 1fr;
+  }
+  
+  .chart-card {
+    padding: 1.2rem;
+  }
+}
+
+@media (max-width: 480px) {
+  .metrics-grid {
+    grid-template-columns: 1fr;
+  }
+  
+  .dashboard-container {
+    padding: 0.5rem;
+  }
+  
+  .dashboard-title {
+    font-size: 1.5rem;
+  }
+}
+/* OTP Verification Page Styles */
+.otp-page {
+  min-height: 100vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background-color: #f9fafb;
+  padding: 1rem;
+}
+
+.otp-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.otp-form {
+  display: flex;
+  align-items: center;
+  flex-direction: column;
+  justify-content: space-around;
+  width: 300px;
+  background-color: white;
+  border-radius: 12px;
+  padding: 30px 20px;
+  box-shadow: 0 10px 25px rgba(0, 0, 0, 0.1);
+}
+
+.otp-title {
+  font-size: 20px;
+  font-weight: bold;
+  color: #1f2937;
+  margin-bottom: 5px;
+}
+
+.otp-message {
+  color: #a3a3a3;
+  font-size: 14px;
+  margin-top: 10px;
+  text-align: center;
+  line-height: 1.4;
+}
+
+.otp-inputs {
+  margin-top: 20px;
+  display: flex;
+  gap: 15px;
+}
+
+.otp-input {
+  width: 50px;
+  height: 50px;
+  text-align: center;
+  border: none;
+  border-bottom: 2px solid #d2d2d2;
+  font-size: 20px;
+  font-weight: bold;
+  transition: all 0.3s ease;
+}
+
+.otp-input:focus {
+  border-bottom: 2px solid #6041bf;
+  outline: none;
+  transform: translateY(-2px);
+}
+
+.otp-action-btn {
+  margin-top: 30px;
+  padding: 15px 25px;
+  border-radius: 8px;
+  border: none;
+  background-color: #6041bf;
+  color: white;
+  cursor: pointer;
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+  transition: all 0.3s ease;
+  width: 100%;
+}
+
+.otp-action-btn:hover {
+  background-color: #5034a3;
+  transform: translateY(-2px);
+  box-shadow: 0 5px 15px rgba(96, 65, 191, 0.3);
+}
+
+.otp-action-btn:active {
+  transform: translateY(0);
+}
+
+/* Responsive design for OTP page */
+@media (max-width: 480px) {
+  .otp-form {
+    width: 280px;
+    padding: 25px 15px;
+  }
+  
+  .otp-input {
+    width: 45px;
+    height: 45px;
+    font-size: 18px;
+  }
+  
+  .otp-inputs {
+    gap: 10px;
+  }
+}
+/* Redesigned AssetList Page */
+.asset-container-new {
+  max-width: 1400px;
+  margin: 0 auto;
+  padding: 2rem;
+}
+
+.asset-header-new {
+  text-align: center;
+  margin-bottom: 3rem;
+}
+
+.asset-title-new {
+  font-size: 2.5rem;
+  font-weight: 800;
+  color: #1f2937;
+  margin-bottom: 0.5rem;
+  letter-spacing: -0.5px;
+}
+
+.asset-subtitle {
+  font-size: 1.1rem;
+  color: #6b7280;
+  margin-bottom: 2rem;
+}
+
+.asset-content {
+  width: 100%;
+}
+
+.asset-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(350px, 1fr));
+  gap: 2rem;
+}
+
+.asset-card {
+  background: white;
+  border-radius: 20px;
+  padding: 1.5rem;
+  box-shadow: 0 10px 25px rgba(0, 0, 0, 0.08);
+  transition: all 0.3s ease;
+  border: 1px solid #f3f4f6;
+  position: relative;
+  overflow: hidden;
+}
+
+.asset-card:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 20px 40px rgba(0, 0, 0, 0.12);
+  border-color: #6041bf;
+}
+
+.asset-card-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 1.5rem;
+}
+
+.asset-icon {
+  width: 50px;
+  height: 50px;
+  border-radius: 50%;
+  background: linear-gradient(135deg, #6041bf, #8b5cf6);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 1.5rem;
+  color: white;
+  font-weight: bold;
+}
+
+.asset-status {
+  display: flex;
+  align-items: center;
+}
+
+.asset-card-body {
+  margin-bottom: 1.5rem;
+}
+
+.asset-name {
+  font-size: 1.4rem;
+  font-weight: 700;
+  color: #1f2937;
+  margin-bottom: 0.5rem;
+  letter-spacing: -0.5px;
+}
+
+.asset-email {
+  color: #6b7280;
+  margin-bottom: 1.5rem;
+  font-size: 0.95rem;
+}
+
+.asset-details {
+  display: flex;
+  flex-direction: column;
+  gap: 0.8rem;
+}
+
+.asset-detail-item {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 0.5rem 0;
+  border-bottom: 1px solid #f3f4f6;
+}
+
+.asset-detail-item:last-child {
+  border-bottom: none;
+}
+
+.detail-label {
+  font-weight: 600;
+  color: #6b7280;
+  font-size: 0.9rem;
+}
+
+.detail-value {
+  font-weight: 500;
+  color: #1f2937;
+  font-size: 0.95rem;
+}
+
+.asset-card-footer {
+  display: flex;
+  gap: 0.8rem;
+  justify-content: flex-end;
+}
+
+.asset-action-btn {
+  padding: 10px 20px;
+  border-radius: 50px;
+  border: none;
+  background: #6041bf;
+  color: white;
+  font-weight: 600;
+  font-size: 0.9rem;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  letter-spacing: 0.5px;
+}
+
+.asset-action-btn:hover {
+  background: #5034a3;
+  transform: translateY(-2px);
+  box-shadow: 0 5px 15px rgba(96, 65, 191, 0.3);
+}
+
+.asset-action-btn.secondary {
+  background: transparent;
+  color: #6041bf;
+  border: 2px solid #6041bf;
+}
+
+.asset-action-btn.secondary:hover {
+  background: #6041bf;
+  color: white;
+}
+
+/* Status badges redesign */
+.status-badge {
+  padding: 6px 12px;
+  border-radius: 20px;
+  font-size: 0.8rem;
+  font-weight: 600;
+  letter-spacing: 0.5px;
+}
+
+.status-assigned {
+  background-color: #dcfce7;
+  color: #166534;
+}
+
+.status-unassigned {
+  background-color: #fef3c7;
+  color: #92400e;
+}
+
+.status-defect {
+  background-color: #fee2e2;
+  color: #991b1b;
+}
+
+/* Responsive design */
+@media (max-width: 1024px) {
+  .asset-grid {
+    grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+    gap: 1.5rem;
+  }
+}
+
+@media (max-width: 768px) {
+  .asset-container-new {
+    padding: 1.5rem;
+  }
+  
+  .asset-grid {
+    grid-template-columns: 1fr;
+    gap: 1.2rem;
+  }
+  
+  .asset-title-new {
+    font-size: 2rem;
+  }
+  
+  .asset-card {
+    padding: 1.2rem;
+  }
+  
+  .asset-card-footer {
+    flex-direction: column;
+  }
+  
+  .asset-action-btn {
+    width: 100%;
+    text-align: center;
+  }
+}
+
+@media (max-width: 480px) {
+  .asset-container-new {
+    padding: 1rem;
+  }
+  
+  .asset-title-new {
+    font-size: 1.8rem;
+  }
+  
+  .asset-card {
+    padding: 1rem;
+  }
+  
+  .asset-card-header {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 1rem;
+  }
+  
+  .asset-status {
+    align-self: flex-end;
+  }
+}
