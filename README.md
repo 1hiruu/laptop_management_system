@@ -1,4 +1,5 @@
 Laptop Management System
+
 A web application for managing company laptops and assets with a clean, intuitive interface.
 
 Live Application: laptop-management-system-phi.vercel.app
