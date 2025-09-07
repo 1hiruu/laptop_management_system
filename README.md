@@ -23,6 +23,8 @@ Responsive Design: Works well on desktops, tablets, and mobile devices
 Technical Details
 Built with React using modern development practices. Features custom styling without external UI libraries for optimal performance. The interface uses a professional color scheme centered around purple (#6041bf) with clean, card-based layouts.
 
+SAMPLE IMAGES:
+ 
 <img width="728" height="830" alt="Screenshot 2025-09-07 054229" src="https://github.com/user-attachments/assets/c8142276-9812-4446-9486-45c50cd2b546" />
 <img width="576" height="684" alt="Screenshot 2025-09-07 054251" src="https://github.com/user-attachments/assets/07b00ec0-58fa-4dc9-8858-2b032603998b" />
 <img width="1124" height="823" alt="Screenshot 2025-09-07 054036" src="https://github.com/user-attachments/assets/2e581d7e-d3a4-4ba4-b40d-d77def81fa5d" />
